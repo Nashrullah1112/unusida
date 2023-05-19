@@ -16,6 +16,8 @@
             <th scope="col">NRP</th>
             <th scope="col">Jurusan</th>
             <th scope="col">Kelamin</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
           </tr>
         </thead>
         <tbody>
@@ -25,6 +27,8 @@
                     <td>{{ $mahasiswa->nrp }}</td>
                     <td>{{ $mahasiswa->jurusan }}</td>
                     <td>{{ $mahasiswa->jenis_kelamin }}</td>
+                    <td>{{ $mahasiswa->email }}</td>
+                    <td>{{ $mahasiswa->password }}</td>
                 </tr>
             @endforeach
         </tbody>

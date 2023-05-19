@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/registrasi', [MahasiswaController::class,'index']);
+Route::get("/",[MahasiswaController::class,'index']);
 // Route::get('/registrasi', function () {
 //     return view('registrasi');
 // });
+
+
