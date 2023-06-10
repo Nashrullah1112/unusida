@@ -3,11 +3,12 @@ module.exports = {
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
-        "./resources/**/*.vue",
-        "./node_modules/flowbite/**/*.js",
+        "./node_modules/@themesberg/flowbite/**/*.js"
     ],
     theme: {
         extend: {},
     },
-    plugins: [require("flowbite/plugin")],
+    plugins: [
+        require('@themesberg/flowbite/plugin')
+    ],
 };

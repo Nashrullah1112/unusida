@@ -9,9 +9,14 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        return view('registrasi', [
-            'mahasiswas' => Mahasiswa::all()
-        ]);
+        return view ('pages.main');
     }
+
+    // public function index()
+    // {
+    //     return view ('pages.main', [
+    //         'mahasiswas' => Mahasiswa::all()
+    //     ]);
+    // }
 
 }

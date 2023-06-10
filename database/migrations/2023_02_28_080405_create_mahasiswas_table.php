@@ -23,6 +23,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('tahun_angkatan');
+            $table->string('semester');
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKpTable extends Migration
+class CreateKpsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateKpTable extends Migration
      */
     public function up()
     {
-        Schema::create('kp', function (Blueprint $table) {
+        Schema::create('kps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('id_mahasiswa');
             $table->string('data_kelompok');
@@ -21,6 +21,8 @@ class CreateKpTable extends Migration
             $table->string('waktu_mulai');
             $table->string('waktu_berakhir');
             $table->string('maps');
+            
+
             
             $table->timestamps();
         });
@@ -33,6 +35,6 @@ class CreateKpTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kp');
+        Schema::dropIfExists('kps');
     }
 }
