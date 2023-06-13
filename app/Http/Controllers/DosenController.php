@@ -10,6 +10,11 @@ use User;
 
 class DosenController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['store']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -57,19 +62,18 @@ class DosenController extends Controller
                 'name' => $request->nama,
                 'password' => Hash::make($request->password),
             ];
+            $user = ModelsUser::create($users);
             $isi_data = [
                 'nip' => $request->nip,
                 'nama'=> $request->nama,
                 'kelamin'=> $request->kelamin,
                 'agama'=>$request->agama, 
                 'email'=>$request->email,
-                'alamat'=>$request->alamat,   
+                'alamat'=>$request->alamat,
+                'user_id' =>  $user->id,
             ];
             
-            
-            // dd($isi_data);
-            ModelsUser::create($users);
-             Dosen::create($isi_data);
+            Dosen::create($isi_data);
             return redirect('/dosen');
         
     

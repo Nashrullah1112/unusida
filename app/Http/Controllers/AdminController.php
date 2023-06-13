@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function index(){
-        $data = Program::with('mahasiswa')->with('dosen')->get();
-        // dd($data);
+        $data = Program::with('mahasiswa', 'dosen')->get();
+        dd($data);
         // $dataResult = collect($data)->toArray();
         // dd($dataResult);
         return view('pages.admin', ['programs' => $data]);

@@ -16,8 +16,9 @@ class Program extends Model
     {
         return $this->belongsTo(Mahasiswa::class, 'id');
     }
+    
     public function dosen()
     {
-        return $this->belongsTo(Dosen::class, 'id');
+        return $this->belongsTo(Dosen::class, 'dosen_id', 'id');
     }
 }

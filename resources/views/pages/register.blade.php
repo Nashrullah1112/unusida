@@ -1,6 +1,6 @@
 @extends('pages.main')
 @section('content')
-    <form action="{{ route('register.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('register_program.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>

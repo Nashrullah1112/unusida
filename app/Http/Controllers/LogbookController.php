@@ -64,7 +64,7 @@ class LogbookController extends Controller
                 $isi_data['file_log'] = 'files/' . $tooltip_imagesName;
             }
             $cekMinggu = Logbook::where('mahasiswaId', $cekMahasiswa->id)->where('minggu', $request->minggu)->first();
-            $cekMinggu->delete();
+            if(!empty($cekMinggu)) $cekMinggu->delete();
             
             Logbook::create($isi_data);
             return redirect('/logbook_mhs');

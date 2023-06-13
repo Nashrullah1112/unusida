@@ -49,7 +49,7 @@ Route::resource('/mahasiswa', MahasiswaController::class);
 Route::resource('/dosen', DosenController::class);
 Route::resource('/logbook', LogbookController::class);
 
-Route::resource('/register', RegisterController::class);
+Route::resource('/register_program', RegisterController::class);
 
 // Route::get('/dosen', function () {
 //     return view('pages.dosen');
@@ -66,3 +66,6 @@ Route::get('/login', function () {
 Route::get('/signup', function () {
     return view('pages.signup');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
