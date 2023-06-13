@@ -19,4 +19,9 @@ class Mahasiswa extends Model
     {
         return $this->hasOne(Kkn::class);
     }
+
+    public function program()
+    {
+        return $this->hasMany(Program::class, 'id_mahasiswa');
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKknTable extends Migration
+class CreateDosensTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateKknTable extends Migration
      */
     public function up()
     {
-        Schema::create('kkn', function (Blueprint $table) {
+        Schema::create('dosens', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_mahasiswa');
-            $table->string('data_kelompok');
-            $table->string('tempat_kkn');
-            $table->date('waktu_mulai');
-            $table->date('waktu_berakhir');
-            $table->string('maps');
-            $table->string('program_kkn');
+            $table->string('nama');
+            $table->string('alamat');
+            $table->string('nip');
+            $table->string('kelamin');
+            $table->string('email');
+            $table->string('agama');
             
             $table->timestamps();
         });
@@ -34,6 +33,6 @@ class CreateKknTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kkn');
+        Schema::dropIfExists('dosens');
     }
 }

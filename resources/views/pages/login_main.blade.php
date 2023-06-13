@@ -11,11 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-   @include('partials.sidebar')
-   <div class="p-4 sm:ml-64 sm:mt-24">
-      <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
-         @yield('content')
-      </div>
-   </div>
+  @yield('content')
 </body>
 </html>
+

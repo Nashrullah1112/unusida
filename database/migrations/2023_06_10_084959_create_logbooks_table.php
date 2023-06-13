@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDosenTable extends Migration
+class CreateLogbooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateDosenTable extends Migration
      */
     public function up()
     {
-        Schema::create('dosen', function (Blueprint $table) {
+        Schema::create('logbooks', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('alamat');
-            $table->string('nip');
-            $table->string('kelamin');
-            $table->string('email');
-            $table->string('password');
-
             $table->timestamps();
+            $table->string('logbook_kp');
+            $table->string('logbook_kkn');
+            $table->integer('dosenId');
+            $table->integer('mahasiswaId');
+            $table->string('Catatan');
+            $table->date('tanggal_lapor');
+
         });
     }
 
@@ -33,6 +33,6 @@ class CreateDosenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dosen');
+        Schema::dropIfExists('logbooks');
     }
 }

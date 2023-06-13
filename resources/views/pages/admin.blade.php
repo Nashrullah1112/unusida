@@ -87,24 +87,24 @@
                 <th scope="col" class="px-6 py-3">
                     Bulan-Tahun
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {{-- <th scope="col" class="px-6 py-3">
                     Alamat-Kota
-                </th>
+                </th> --}}
                 <th scope="col" class="px-6 py-3">
                     NRP-Nama Mahasiswa 
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Dosen Pembimbing
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {{-- <th scope="col" class="px-6 py-3">
                     Status
-                </th>    
-                <th scope="col" class="px-6 py-3">
+                </th>     --}}
+                {{-- <th scope="col" class="px-6 py-3">
                     Catatan dan Komentar
                 </th>    
                 <th scope="col" class="px-6 py-3">
                     Status dokumen administrasi
-                </th>    
+                </th>     --}}
                 <th scope="col" class="px-6 py-3">
                     Lama KP/KKN
                 </th>    
@@ -114,6 +114,7 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($programs as $key=> $data )
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td class="w-4 p-4">
                     <div class="flex items-center">
@@ -122,45 +123,49 @@
                     </div>
                 </td>
                 <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
-                    PT EEPIS Sidoarjo
+                    {{ $data->nama_lokasi }}
                 </th>
                 <td class="px-6 py-4">
-                    05-2023
+                    {{ $data->waktu_mulai }}
+                </td>
+                {{-- <td class="px-6 py-4">
+                    {{  }}
+                </td> --}}
+                <td class="px-6 py-4">
+                    {{ $data->mahasiswa->nim }}
                 </td>
                 <td class="px-6 py-4">
-                    Surabaya
-                </td>
-                <td class="px-6 py-4">
-                    3120500008
-                </td>
-                <td class="px-6 py-4">
-                    <select id="small" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    {{ $data->dosen->nama }}
+                    {{-- <select id="small" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                       <option selected></option>
                       <option value="US">United States</option>
                      
-                    </select>
+                    </select> --}}
                 </td>
-                <td class="px-6 py-4">
+                {{-- <td class="px-6 py-4">
                     <select id="small" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         <option selected></option>
                         <option value="US">United States</option>
                        
                       </select>
-                </td>
-                <td class="px-6 py-4">
+                </td> --}}
+                {{-- <td class="px-6 py-4">
                     -
                 </td>
                 <td class="px-6 py-4">
                     Selesai
+                </td> --}}
+                <td class="px-6 py-4">
+                    {{ $data->durasi }}
                 </td>
                 <td class="px-6 py-4">
-                    6 Bulan
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    {{ $data->waktu_mulai }}
+                    {{-- <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> --}}
                 </td>
                 
             </tr>
+                
+            @endforeach
             
         </tbody>
     </table>

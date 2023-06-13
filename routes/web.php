@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\LogbookController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,19 +32,37 @@ Route::get('/monitoring', function () {
     return view('pages.monitoring');
 });
 
-Route::get('/admin', function () {
-    return view('pages.admin');
+Route::get('/admin',[AdminController::class,'index'])->name('/admin');
+// Route::get('/admin', function () {
+//     return view('pages.admin');
+// })->name('/admin');
+
+// Route::get('/register', function () {
+//     return view('pages.register');
+// });
+
+
+// Route::get('/mahasiswa', function () {
+//     return view('pages.mahasiswa');
+// });
+Route::resource('/mahasiswa', MahasiswaController::class);
+Route::resource('/dosen', DosenController::class);
+Route::resource('/logbook', LogbookController::class);
+
+Route::resource('/register', RegisterController::class);
+
+// Route::get('/dosen', function () {
+//     return view('pages.dosen');
+// });
+
+Route::get('/mahasiswa_create', function () {
+    return view('pages.mahasiswa_create');
 });
 
-Route::get('/register', function () {
-    return view('pages.register');
+Route::get('/login', function () {
+    return view('pages.login');
 });
 
-
-Route::get('/mahasiswa', function () {
-    return view('pages.mahasiswa');
-});
-
-Route::get('/dosen', function () {
-    return view('pages.dosen');
+Route::get('/signup', function () {
+    return view('pages.signup');
 });

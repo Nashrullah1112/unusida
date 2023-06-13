@@ -24,9 +24,15 @@ class DatabaseSeeder extends Seeder
             'jenis_kelamin' => 'pria',
             'agama' => 'islam',
             'jurusan' => 'teknik informatika',
-            'nrp' => '3120500008',
+            'nim' => '3120500008',
             'email' => 'nashrullah@gmail.com',
-            'password' => '187187',
+            'alamat' => 'waru',
+            'semester' => '10',
+            'tahun_angkatan' => '2019',
+            'program' => 'KP',
+
+            
+            
         ]);
 
         Kp::create([
@@ -44,7 +50,9 @@ class DatabaseSeeder extends Seeder
             'tempat_kkn' => 'Desa kembang desa',
             'waktu_mulai' => '2024-1-1',
             'waktu_berakhir' => '2024-2-2',
-            'maps' => 'Jl. rusunawa, Ds Kembang desa'
+            'maps' => 'Jl. rusunawa, Ds Kembang desa',
+            'program_kkn' => 'pdf',
+
         ]);
 
     }

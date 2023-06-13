@@ -19,11 +19,13 @@ class CreateMahasiswasTable extends Migration
             $table->string('jenis_kelamin');
             $table->string('agama');
             $table->string('jurusan');
-            $table->string ('nrp');
+            $table->string ('nim');
             $table->string('email');
-            $table->string('password');
             $table->string('tahun_angkatan');
             $table->string('semester');
+            $table->string('alamat');
+            $table->string('program');
+
             $table->timestamps();
         });
     }
