@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function index(){
         $data = Program::with('mahasiswa', 'dosen')->get();
-        dd($data);
+        // dd($data);
         // $dataResult = collect($data)->toArray();
         // dd($dataResult);
         return view('pages.admin', ['programs' => $data]);

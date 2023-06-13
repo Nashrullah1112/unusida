@@ -17,6 +17,6 @@ class Dosen extends Model
     }
     public function program()
     {
-        return $this->hasMany(Program::class);
+        return $this->hasMany(Program::class, 'id_dosen');
     }
 }
