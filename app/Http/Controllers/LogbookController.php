@@ -45,7 +45,9 @@ class LogbookController extends Controller
             'tanggal'=> 'required',
         ]);
 
-        $cekMahasiswa = Mahasiswa::where('nim', $request->nim)->first();
+        $cekMahasiswa = Mahasiswa::where('nim', $request->nim)->with('kegiatan')->first();
+        // dd($cekMahasiswa->kegiatan);
+        dd($cekMahasiswa->kegiatan->id_dosen);
         if(!empty($cekMahasiswa))
         {
             
@@ -54,7 +56,8 @@ class LogbookController extends Controller
                 'mahasiswaId' => $cekMahasiswa->id,
                 'minggu' => $request->minggu,
                 'catatan' => $request->catatan,       
-                'tanggal_lapor' => $request->tanggal,  
+                'tanggal_lapor' => $request->tanggal,
+                'dosenId' => $cekMahasiswa->program->id_dosen,  
                     
             ];
             $tooltip_images = $request->file('upload');

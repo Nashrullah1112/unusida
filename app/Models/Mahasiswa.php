@@ -20,8 +20,13 @@ class Mahasiswa extends Model
         return $this->hasOne(Kkn::class);
     }
 
-    public function program()
+    public function kegiatan()
     {
         return $this->hasMany(Program::class, 'id_mahasiswa');
+    }
+
+    public function logbook()
+    {
+        return $this->hasOne(Logbook::class, 'mahasiswaId');
     }
 }
