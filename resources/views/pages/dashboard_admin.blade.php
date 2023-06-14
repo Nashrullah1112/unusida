@@ -1,7 +1,5 @@
 @extends('pages.main')
-
 @section('content')
-
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-green-50">
     {{-- Select button start --}}
     <div class="flex items-end gap-5  pb-4">
@@ -86,6 +84,5 @@
         </tbody>
     </table>
 </div>
-
-
 @endsection
+

@@ -47,6 +47,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Routes accessible only to students (mahasiswa)
         Route::get('/', [MahasiswaController::class, 'index'])->name('dashboard');
     });
+
+    
 });
 
 // Route::get('/registrasi', [MahasiswaController::class,'index']);
@@ -94,8 +96,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('pages.login');
 // });
 
-// Route::get('/signup', function () {
-//     return view('pages.signup');
-// });
+Route::get('/dashboard_admin', function () {
+    return view('pages.dashboard_admin');
+});
+Route::get('/pilih_mentor', function () {
+    return view('pages.pilih_mentor');
+});
+Route::get('/pilih_dosen', function () {
+    return view('pages.pilih_dosen');
+});
 
+Route::get('/login_new', function () {
+    return view('pages.login_new');
+});
+
+Route::get('/signup_new', function () {
+    return view('pages.signup_new');
+});
+
+Route::get('/profile', function () {
+    return view('pages.profile');
+});
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
