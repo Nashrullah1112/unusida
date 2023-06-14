@@ -10,7 +10,7 @@
     </div>
     {{-- Text Message --}}
 
-    <form action="{{ route('admin.mentorshipUpdate', ['id' => $mahasiswa->id]) }}" method="post">
+    <form action="{{ route('admin.mentorship.update', ['id' => $mahasiswa->id]) }}" method="post">
         @csrf
         @method('put')
 

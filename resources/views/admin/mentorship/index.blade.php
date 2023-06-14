@@ -64,7 +64,7 @@
                     {{ $mahasiswa->dosen->user->name }}
                 </td>
                 <td class="px-6 py-4">
-                    <a href="{{ route('admin.mentorship', ['id' => $mahasiswa->id]) }}" class="">
+                    <a href="{{ route('admin.mentorship.show', ['id' => $mahasiswa->id]) }}" class="">
                         Edit Dosen Pembimbing
                     </a>
                 </td>

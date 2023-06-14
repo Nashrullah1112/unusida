@@ -17,8 +17,6 @@ class Logbook extends Model
 
     public function mahasiswa()
     {
-        return $this->belongsTo(Mahasiswa::class, 'id');
+        return $this->belongsTo(Mahasiswa::class);
     }
-
-
 }

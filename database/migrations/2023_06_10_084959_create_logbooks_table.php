@@ -17,7 +17,7 @@ class CreateLogbooksTable extends Migration
             $table->id();
             $table->unsignedBigInteger('mahasiswa_id');
             $table->string('logbook');
-            $table->string('Catatan');
+            $table->string('Catatan')->nullable();
             $table->date('tanggal_lapor');
             $table->timestamps();
 
