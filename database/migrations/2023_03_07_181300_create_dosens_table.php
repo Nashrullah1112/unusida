@@ -15,13 +15,13 @@ class CreateDosensTable extends Migration
     {
         Schema::create('dosens', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->unsignedBigInteger('user_id')->unique();
             $table->string('alamat');
             $table->string('nip');
-            $table->string('kelamin');
-            $table->string('email');
+            $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->string('agama');
-            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

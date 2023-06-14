@@ -11,12 +11,20 @@ class Dosen extends Model
     protected $guarded = ['id']; 
     protected $table='dosens';
 
-    public function logbook()
-    {
-        return $this->hasOne(Logbook::class);
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
-    public function program()
-    {
-        return $this->hasMany(Program::class, 'id_dosen');
+
+    public function mahasiswas() {
+        return $this->hasMany(Mahasiswa::class, 'dosen_id', 'id');
     }
+
+    // public function logbook()
+    // {
+    //     return $this->hasOne(Logbook::class);
+    // }
+    // public function program()
+    // {
+    //     return $this->hasMany(Program::class, 'id_dosen');
+    // }
 }

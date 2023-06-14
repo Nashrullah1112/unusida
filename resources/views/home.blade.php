@@ -15,6 +15,11 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <br>
+
+                    <a href="{{ route('admin.dashboard') }}">Admin</a> <br>
+                    <a href="{{ route('dosen.dashboard') }}">Dosen</a> <br>
+                    <a href="{{ route('mahasiswa.dashboard') }}">Mahasiswa</a>
                 </div>
             </div>
         </div>

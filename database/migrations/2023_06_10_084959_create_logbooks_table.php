@@ -15,14 +15,13 @@ class CreateLogbooksTable extends Migration
     {
         Schema::create('logbooks', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('logbook_kp');
-            $table->string('logbook_kkn');
-            $table->integer('dosenId');
-            $table->integer('mahasiswaId');
+            $table->unsignedBigInteger('mahasiswa_id');
+            $table->string('logbook');
             $table->string('Catatan');
             $table->date('tanggal_lapor');
+            $table->timestamps();
 
+            $table->foreign('mahasiswa_id')->references('id')->on('mahasiswas')->onDelete('cascade');
         });
     }
 

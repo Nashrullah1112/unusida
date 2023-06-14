@@ -12,7 +12,7 @@
     {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
 </head>
 <body>
-   @include('partials.sidebar')
+   @include('admin.layouts.partials.sidebar')
    <div class="p-4 sm:ml-64 sm:mt-24">
       <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
          @yield('content')

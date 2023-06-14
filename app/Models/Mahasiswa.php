@@ -10,23 +10,31 @@ class Mahasiswa extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function kp()
-    {
-        return $this->hasOne(Kp::class);
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function kkn()
-    {
-        return $this->hasOne(Kkn::class);
+    public function dosen() {
+        return $this->belongsTo(Dosen::class, 'dosen_id', 'id');
     }
 
-    public function kegiatan()
-    {
-        return $this->hasMany(Program::class, 'id_mahasiswa');
-    }
+    // public function kp()
+    // {
+    //     return $this->hasOne(Kp::class);
+    // }
 
-    public function logbook()
-    {
-        return $this->hasOne(Logbook::class, 'mahasiswaId');
-    }
+    // public function kkn()
+    // {
+    //     return $this->hasOne(Kkn::class);
+    // }
+
+    // public function kegiatan()
+    // {
+    //     return $this->hasMany(Program::class, 'id_mahasiswa');
+    // }
+
+    // public function logbook()
+    // {
+    //     return $this->hasOne(Logbook::class, 'mahasiswaId');
+    // }
 }
