@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <h1>Bimbingan {{ $dosen->user->name }}</h1>
 
             <table class="min-w-full divide-y divide-gray-200">
                 <thead>
@@ -29,7 +30,7 @@
                         <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">{{ $mahasiswa->user->name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <a href="{{ route('dosen.monitoring', ['id' => $mahasiswa->id]) }}"
+                            <a href="{{ route('dosen.monitoring.show', ['id' => $mahasiswa->id]) }}"
                                 class="inline-block px-4 py-2 text-sm font-medium leading-5 text-black transition-colors duration-150 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
                                 lihat loogbook
                             </a>

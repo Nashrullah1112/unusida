@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Mahasiswa;
 use App\Models\Dosen;
+use App\Models\Logbook;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Faker\Factory as Faker;
@@ -20,7 +21,7 @@ class UserSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             // Create a user for Mahasiswa
             $mahasiswaFirstName = $faker->firstNameMale;
             $mahasiswaLastName = $faker->lastName;
@@ -37,7 +38,7 @@ class UserSeeder extends Seeder
                 'verified' => false,
             ]);
 
-            // Create a user for Mahasiswa
+            // Create a user for Dosen
             $userDosen = User::create([
                 'name' => $dosenFullName,
                 'email' => $dosenFirstName . '@lecturer.unusida.ac.id',
@@ -56,7 +57,7 @@ class UserSeeder extends Seeder
             ]);
 
             // Create a mahasiswa and associate the user and dosen
-            Mahasiswa::create([
+            $mahasiswa = Mahasiswa::create([
                 'user_id' => $userMahasiswa->id,
                 'dosen_id' => $dosen->id,
                 'nim' => $faker->numberBetween(100000000, 999999999),
@@ -68,7 +69,17 @@ class UserSeeder extends Seeder
                 'alamat' => $faker->address(),
                 'program' => $faker->randomElement(['kp', 'kkn']),
             ]);
+
+            for ($z = 0; $z < 5; $z++) {
+                Logbook::create([
+                    'mahasiswa_id' => $mahasiswa->id,
+                    'logbook' => $faker->text($maxNbChars = 200),
+                    'Catatan' => $faker->text($maxNbChars = 20),
+                    'tanggal_lapor' => now()->format('Y-m-d'),
+                ]);
+            }
         }
+
 
         // Create additional users, dosen, and mahasiswa as needed
     }

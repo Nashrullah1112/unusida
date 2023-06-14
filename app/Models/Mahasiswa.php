@@ -10,11 +10,13 @@ class Mahasiswa extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function dosen() {
+    public function dosen()
+    {
         return $this->belongsTo(Dosen::class, 'dosen_id', 'id');
     }
 
@@ -33,8 +35,8 @@ class Mahasiswa extends Model
     //     return $this->hasMany(Program::class, 'id_mahasiswa');
     // }
 
-    // public function logbook()
-    // {
-    //     return $this->hasOne(Logbook::class, 'mahasiswaId');
-    // }
+    public function logbooks()
+    {
+        return $this->hasMany(Logbook::class);
+    }
 }
