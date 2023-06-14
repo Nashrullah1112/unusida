@@ -17,7 +17,7 @@ class VerifyUserMiddleware
     public function handle(Request $request, Closure $next)
     {
         if ($request->user() && $request->user()->verified !== 1) {
-            return redirect()->route('verification.notice');
+            return redirect()->route('home');
         }
 
         return $next($request);

@@ -25,19 +25,24 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth','verified'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
         // Routes accessible only to admins
         Route::get('/', [AdminController::class, 'index'])->name('dashboard');
         Route::get('/pilih-pembimbing', [AdminController::class, 'mentorships'])->name('mentorships');
+        Route::get('/pilih-pembimbing/{id}', [AdminController::class, 'mentorship'])->name('mentorship');
+        Route::put('/pilih-pembimbing/{id}', [AdminController::class, 'mentorshipUpdate'])->name('mentorshipUpdate');
         Route::put('/verify/{id}', [AdminController::class, 'verify'])->name('verify');
     });
-    
+
     Route::prefix('dosen')->name('dosen.')->middleware('role:dosen')->group(function () {
         // Routes accessible only to staff
         Route::get('/', [DosenController::class, 'index'])->name('dashboard');
+        Route::get('/monitorings', [DosenController::class, 'monitorings'])->name('monitorings');
+        Route::get('/monitoring/{id}', [DosenController::class, 'monitoring'])->name('monitoring');
+        Route::put('/profile/{id}', [DosenController::class, 'profile'])->name('profile');
     });
-    
+
     Route::prefix('mahasiswa')->name('mahasiswa.')->middleware('role:mahasiswa')->group(function () {
         // Routes accessible only to students (mahasiswa)
         Route::get('/', [MahasiswaController::class, 'index'])->name('dashboard');

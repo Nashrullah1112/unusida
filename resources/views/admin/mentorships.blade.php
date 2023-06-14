@@ -1,83 +1,76 @@
 @extends('admin.layouts.main')
 
 @section('content')
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-green-50">
-        {{-- Text Message Start  --}}
-        <div>
-            <p>
-                Verifikasi Akun yang telah di registrasi oleh mahasiswa atau dosen
-            </p>
-        </div>
-        {{-- Text Message --}}
-
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-grey-700 uppercase bg-green-300 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                    <th scope="col" class="px-6 py-3">
-                        #
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Nama
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Email
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Role
-                    </th>
-                    <th scope="date" class="px-6 py-3">
-                        Tanggal
-                    </th>
-                    <th scope="date" class="px-6 py-3">
-                        Status Verifikasi
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($mahasiswas as $mahasiswa)
-                    <tr>
-                        <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
-                            {{ $loop->iteration }}
-                        </th>
-                        <td class="px-6 py-4">
-                            {{ $mahasiswa->name }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $mahasiswa->email }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ $mahasiswa->role }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ date('d M Y', strtotime($mahasiswa->created_at)) }}
-                        </td>
-                        <td class="px-6 py-4">
-
-                            @switch($mahasiswa->verified)
-                                @case(true || 1)
-                                    <p
-                                        class="text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                        Verified
-                                    </p>
-                                @break
-
-                                @case(false || 0)
-                                    <form method="POST" action="{{ route('admin.verify', ['id' => $mahasiswa->id]) }}">
-                                        @csrf
-                                        @method('PUT')
-
-                                        <input type="submit" value="Verify" name="verified"
-                                            class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    </form>
-                                @break
-
-                                @default
-                            @endswitch
-
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-green-50">
+    {{-- Text Message Start --}}
+    <div>
+        <p>
+            Pilih Dosen Pembimbing untuk Mahasiswa
+        </p>
     </div>
+    {{-- Text Message --}}
+
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-grey-700 uppercase bg-green-300 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nama
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    NIM
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Angkatan
+                </th>
+                <th scope="date" class="px-6 py-3">
+                    Semester
+                </th>
+                <th scope="date" class="px-6 py-3">
+                    Program
+                </th>
+                <th scope="date" class="px-6 py-3">
+                    Pembimbing
+                </th>
+                <th scope="date" class="px-6 py-3">
+                    Aksi
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($mahasiswas as $mahasiswa)
+            <tr>
+                <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
+                    {{ $loop->iteration }}
+                </th>
+                <td class="px-6 py-4">
+                    {{ $mahasiswa->user->name }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $mahasiswa->nim }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $mahasiswa->tahun_angkatan }}
+                </td>
+                <td class="px-6 py-4">
+                    Semester {{ $mahasiswa->semester }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $mahasiswa->program }}
+                </td>
+                <td class="px-6 py-4">
+                    {{ $mahasiswa->dosen->user->name }}
+                </td>
+                <td class="px-6 py-4">
+                    <a href="{{ route('admin.mentorship', ['id' => $mahasiswa->id]) }}" class="">
+                        Edit Dosen Pembimbing
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

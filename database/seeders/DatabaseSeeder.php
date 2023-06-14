@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
             'verified'  => true,
         ]);
 
-        \App\Models\User::factory(10)->create();
+        $this->call(UserSeeder::class);
+
+        // \App\Models\User::factory(10)->create();
 
         // Mahasiswa::create([
         //     'nama' => 'nashrullah',

@@ -20,9 +20,9 @@ class CreateDosensTable extends Migration
             $table->string('nip');
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->string('agama');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

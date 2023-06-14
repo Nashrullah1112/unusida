@@ -16,7 +16,7 @@ class CreateMahasiswasTable extends Migration
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->unique();
-            $table->unsignedBigInteger('dosen_id');
+            $table->unsignedBigInteger('dosen_id')->nullable();
             $table->string('nim')->unique();
             $table->enum('gender', ['laki-laki', 'perempuan']);
             $table->string('agama');
@@ -26,7 +26,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('alamat');
             $table->string('program');
             $table->timestamps();
-            
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('dosen_id')->references('id')->on('dosens')->onDelete('cascade');
         });

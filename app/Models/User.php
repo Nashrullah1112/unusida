@@ -42,11 +42,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function mahasiswa() {
-        return $this->hasOne(Mahasiswa::class, 'user_id', 'id');
+    public function mahasiswa()
+    {
+        return $this->hasOne(Mahasiswa::class, 'id');
     }
 
-    public function dosen() {
-        return $this->hasOne(Dosen::class, 'dosen_id', 'id');
+    public function dosen()
+    {
+        return $this->hasOne(Dosen::class, 'id');
     }
 }
