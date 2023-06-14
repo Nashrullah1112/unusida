@@ -38,8 +38,14 @@
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </div>
                 </th>
+                <th scope="date" class="px-6 py-3">
+                    Tanggal
+                </th>
                 <th scope="col" class="px-6 py-3">
-                    Nama
+                    Logbook
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Catatan
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Aksi
@@ -55,10 +61,16 @@
                     </div>
                 </td>
                 <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
-                    Ahmad
+                    15-06-2032
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum ad, quidem magni sint rem quia sapiente beatae enim perferendis, praesentium voluptates molestias nulla iure suscipit blanditiis! Officia, odio cumque?
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit ut expedita, saepe natus atque esse voluptatem quis, quos unde dicta, repellat exercitationem est cupiditate id eum obcaecati in maxime sit.
                 </th>
                 <td class="px-6 py-4">
-                    <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Terima</button>    
+                    <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Lihat Logbook</button>    
                 </td>  
             </tr>
                 
@@ -67,6 +79,5 @@
         </tbody>
     </table>
 </div>
-
 
 @endsection

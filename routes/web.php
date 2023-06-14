@@ -136,4 +136,13 @@ Route::get('/signup_new', function () {
 Route::get('/profile', function () {
     return view('pages.profile');
 });
+Route::get('/monitoring', function () {
+    return view('pages.monitoring');
+});
+Route::get('/monitoring_1', function () {
+    return view('pages.monitoring_1');
+});
+Route::get('/monitoring_2', function () {
+    return view('pages.monitoring_2');
+});
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
