@@ -65,55 +65,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/insert', [MahasiswaDosenLogbookController::class, 'insert'])->name('insert');
             Route::put('/{id}', [MahasiswaDosenLogbookController::class, 'update'])->name('update');
         });
+        Route::put('/profile/{id}', [MahasiswaController::class, 'profile'])->name('profile');
     });
-
-    
 });
-
-// Route::get('/registrasi', [MahasiswaController::class,'index']);
-// Route::get("/",[MahasiswaController::class,'index']);
-// Route::get("/logbook",[MahasiswaController::class,'index']);
-
-
-// Route::get('/logbook_mhs', function () {
-//     return view('pages.logbook_mhs');
-// });
-
-
-// Route::get('/monitoring', function () {
-//     return view('pages.monitoring');
-// });
-
-// Route::get('/admin',[AdminController::class,'index'])->name('/admin');
-// // Route::get('/admin', function () {
-// //     return view('pages.admin');
-// // })->name('/admin');
-
-// // Route::get('/register', function () {
-// //     return view('pages.register');
-// // });
-
-
-// // Route::get('/mahasiswa', function () {
-// //     return view('pages.mahasiswa');
-// // });
-// Route::resource('/mahasiswa', MahasiswaController::class);
-// Route::resource('/dosen', DosenController::class);
-// Route::resource('/logbook', LogbookController::class);
-
-// Route::resource('/register_program', RegisterController::class);
-
-// // Route::get('/dosen', function () {
-// //     return view('pages.dosen');
-// // });
-
-// Route::get('/mahasiswa_create', function () {
-//     return view('pages.mahasiswa_create');
-// });
-
-// Route::get('/login', function () {
-//     return view('pages.login');
-// });
 
 Route::get('/dashboard_admin', function () {
     return view('pages.dashboard_admin');

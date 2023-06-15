@@ -15,4 +15,24 @@ class MahasiswaController extends Controller
 
         return view('mahasiswa.dashboard', compact('mahasiswa'));
     }
+
+    public function profile(Request $request, $id)
+    {
+        $data = [
+            'user_id' => $id,
+            'alamat' => $request->alamat,
+            'nim' => $request->nim,
+            'gender' => $request->gender,
+            'agama' => $request->agama,
+            'jurusan' => $request->jurusan,
+            'tahun_angkatan' => $request->tahun_angkatan,
+            'semester' => $request->semester,
+            'program' => $request->program,
+        ];
+
+        Mahasiswa::create($data);
+        dd($data);
+
+        return redirect()->route('mahasiswa.dashboard');
+    }
 }

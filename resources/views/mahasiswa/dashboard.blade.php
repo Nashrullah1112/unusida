@@ -6,10 +6,11 @@
         <div class="col-md-8">
 
             @if($mahasiswa && $mahasiswa->alamat && $mahasiswa->nim && $mahasiswa->gender && $mahasiswa->agama &&
-            $mahasiswa->jurusan && $mahasiswa->tahun_angkatan && $mahasiswa->semester && $mahasiswa->program)
+            $mahasiswa->jurusan && $mahasiswa->tahun_angkatan && $mahasiswa->semester && $mahasiswa->program &&
+            $mahasiswa->dosen_id !== null)
             <p>Your profile is already complete. No additional information required.</p>
             @else
-            <form action="{{ route('dosen.profile', ['id' => Auth::id()]) }}" method="POST">
+            <form action="{{ route('mahasiswa.profile', ['id' => Auth::id()]) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -17,7 +18,7 @@
                     <label for="nim" class="block text-gray-700 font-bold mb-2">NIM:</label>
                     <input id="nim" name="nim" type="number" max="9999999999"
                         class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        required value="{{ $mahasiswa->nim }}">
+                        required value="">
                 </div>
 
                 <div class="mb-4">
@@ -26,9 +27,9 @@
                         class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         required>
                         <option selected disabled>Select gender</option>
-                        <option value="laki-laki" {{ $mahasiswa->gender == 'laki-laki' ? 'selected' : '' }}>Laki-laki
+                        <option value="laki-laki">Laki-laki
                         </option>
-                        <option value="perempuan" {{ $mahasiswa->gender == 'perempuan' ? 'selected' : '' }}>Perempuan
+                        <option value="perempuan">Perempuan
                         </option>
                     </select>
                 </div>
@@ -39,14 +40,14 @@
                         class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         required>
                         <option selected disabled>Select religion</option>
-                        <option value="islam" {{ $mahasiswa->agama == 'islam' ? 'selected' : '' }}>Islam</option>
-                        <option value="kristen" {{ $mahasiswa->agama == 'kristen' ? 'selected' : '' }}>Kristen
+                        <option value="islam">Islam</option>
+                        <option value="kristen">Kristen
                         </option>
-                        <option value="katolik" {{ $mahasiswa->agama == 'katolik' ? 'selected' : '' }}>Katolik
+                        <option value="katolik">Katolik
                         </option>
-                        <option value="hindu" {{ $mahasiswa->agama == 'hindu' ? 'selected' : '' }}>Hindu</option>
-                        <option value="buddha" {{ $mahasiswa->agama == 'buddha' ? 'selected' : '' }}>Buddha</option>
-                        <option value="konghucu" {{ $mahasiswa->agama == 'konghucu' ? 'selected' : '' }}>Konghucu
+                        <option value="hindu">Hindu</option>
+                        <option value="buddha">Buddha</option>
+                        <option value="konghucu">Konghucu
                         </option>
                     </select>
                 </div>
@@ -57,34 +58,22 @@
                         class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         required>
                         <option selected disabled>Select religion</option>
-                        <option value="Tenik Industri" {{ $mahasiswa->jurusan == 'Tenik Industri' ? 'selected' : ''
-                            }}>Tenik
+                        <option value="Tenik Industri">Tenik
                             Industri</option>
-                        <option value="Teknik Kimia" {{ $mahasiswa->jurusan == 'Teknik Kimia' ? 'selected' : ''
-                            }}>Teknik
+                        <option value="Teknik Kimia">Teknik
                             Kimia</option>
-                        <option value="Teknik Lingkungan" {{ $mahasiswa->jurusan == 'Teknik Lingkungan' ? 'selected' :
-                            '' }}>Teknik
+                        <option value="Teknik Lingkungan">Teknik
                             Lingkungan</option>
-                        <option value="Sistem Informasi" {{ $mahasiswa->jurusan == 'Sistem Informasi' ? 'selected' : ''
-                            }}>Sistem
+                        <option value="Sistem Informasi">Sistem
                             Informasi</option>
-                        <option value="Teknik Informatika" {{ $mahasiswa->jurusan == 'Teknik Informatika' ? 'selected' :
-                            ''
-                            }}>Teknik Informatika</option>
-                        <option value="Desain Komunikasi Visual" {{ $mahasiswa->jurusan == 'Desain Komunikasi Visual' ?
-                            'selected' : ''
-                            }}>Desain Komunikasi Visual</option>
-                        <option value="Manajemen" {{ $mahasiswa->jurusan == 'Manajemen' ? 'selected' : '' }}>Manajemen
+                        <option value="Teknik Informatika">Teknik Informatika</option>
+                        <option value="Desain Komunikasi Visual">Desain Komunikasi Visual</option>
+                        <option value="Manajemen">Manajemen
                         </option>
-                        <option value="Akuntansi" {{ $mahasiswa->jurusan == 'Akuntansi' ? 'selected' : '' }}>Akuntansi
+                        <option value="Akuntansi">Akuntansi
                         </option>
-                        <option value="Pendidikan Bahasa Inggris" {{ $mahasiswa->jurusan == 'Pendidikan Bahasa Inggris'
-                            ? 'selected' : ''
-                            }}>Pendidikan Bahasa Inggris</option>
-                        <option value="Pendidikan Guru Sekolah Dasar" {{ $mahasiswa->jurusan == 'Pendidikan Guru Sekolah
-                            Dasar' ? 'selected' :
-                            '' }}>Pendidikan Guru Sekolah Dasar</option>
+                        <option value="Pendidikan Bahasa Inggris">Pendidikan Bahasa Inggris</option>
+                        <option value="Pendidikan Guru Sekolah Dasar">Pendidikan Guru Sekolah Dasar</option>
                     </select>
                 </div>
 
@@ -92,14 +81,21 @@
                     <label for="tahun_angkatan" class="block text-gray-700 font-bold mb-2">Tahun Angkatan:</label>
                     <input id="tahun_angkatan" name="tahun_angkatan" type="number" max="9999999999"
                         class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        required value="{{ $mahasiswa->tahun_angkatan }}">
+                        required value="">
+                </div>
+
+                <div class="mb-4">
+                    <label for="semester" class="block text-gray-700 font-bold mb-2">Semester:</label>
+                    <input id="semester" name="semester" type="number" max="9999999999"
+                        class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        required value="">
                 </div>
 
                 <div class="mb-4">
                     <label for="alamat" class="block text-gray-700 font-bold mb-2">Alamat:</label>
                     <textarea id="alamat" name="alamat"
                         class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        rows="4" required>{{ $mahasiswa->alamat }}</textarea>
+                        rows="4" required></textarea>
                 </div>
 
                 <div class="mb-4">
@@ -108,9 +104,9 @@
                         class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         required>
                         <option selected disabled>Select Program</option>
-                        <option value="kkn" {{ $mahasiswa->program == 'kkn' ? 'selected' : '' }}>KKN
+                        <option value="kkn">KKN
                         </option>
-                        <option value="kp" {{ $mahasiswa->program == 'kp' ? 'selected' : '' }}>KP
+                        <option value="kp">KP
                         </option>
                     </select>
                 </div>

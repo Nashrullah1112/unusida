@@ -1,4 +1,4 @@
-@extends('dosen.layouts.main')
+@extends('pages.main')
 
 @section('content')
 <div class="container">

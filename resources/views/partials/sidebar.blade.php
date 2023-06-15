@@ -75,18 +75,28 @@
     <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
         <ul class="space-y-2 font-medium">
             <li>
-
-            </li>
-            <li>
-                <a href="#"
+                <a href="{{ route('home') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700">
-                    {{-- <svg aria-hidden="true" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg> --}}
                     <img src="{{ asset('img/home-2-svgrepo-com.svg') }}" alt="" class="w-6 h-6">
                     <span class="ml-3">Home</span>
                 </a>
             </li>
+            @switch(Auth::user()->role)
+            @case('admin')
+            {{-- <li>
+                <a href="{{ route('admin.dashboard') }}"
+                    class="flex items-center p-2 text-grey-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-grey-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                    </svg>
+
+                    <span class="flex-1 ml-3 whitespace-nowrap">Admin</span>
+                </a>
+            </li> --}}
             <li>
-                <a href="#"
+                <a href="{{ route('admin.dashboard') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6">
@@ -97,6 +107,34 @@
                     <span class="flex-1 ml-3 whitespace-nowrap">Verifikasi User</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route('admin.mentorship.index') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+
+                    <span class="flex-1 ml-3 whitespace-nowrap">Pilih Pembimbing</span>
+                    <span
+                        class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+                </a>
+            </li>
+            @break
+            @case('dosen')
+            @if (Auth::user()->dosen != null)
+            <li>
+                <a href="{{ route('dosen.monitoring.index') }}"
+                    class="flex items-center p-2 text-grey-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-grey-900">
+                    <img src="{{ asset('img/eye-open-svgrepo-com.svg') }}" alt="" class="w-6 h-6">
+                    <span class="flex-1 ml-3 whitespace-nowrap">Monitoring Mahasiswa</span>
+                </a>
+            </li>
+            @endif
+            @break
+            @case('mahasiswa')
+            @if (Auth::user()->mahasiswa != null)
             <li>
                 <a href="/logbook_mhs"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700">
@@ -111,55 +149,24 @@
                         class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
                 </a>
             </li>
-            <li>
-                <a href="/mahasiswa_create"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                    </svg>
+            @endif
+            @break
+            Belum verifikasi
+            @default
 
-                    <span class="flex-1 ml-3 whitespace-nowrap">Pilih Pembimbing</span>
-                    <span
-                        class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
-                </a>
-            </li>
-
+            @endswitch
             <li>
-                <a href="/admin"
-                    class="flex items-center p-2 text-grey-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-grey-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-                    </svg>
-
-                    <span class="flex-1 ml-3 whitespace-nowrap">Admin</span>
-                </a>
-            </li>
-            <li>
-                <a href="/monitoring"
-                    class="flex items-center p-2 text-grey-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-grey-900">
-                    <img src="{{ asset('img/eye-open-svgrepo-com.svg') }}" alt="" class="w-6 h-6">
-                    <span class="flex-1 ml-3 whitespace-nowrap">Monitoring Mahasiswa</span>
-                </a>
-            </li>
-            <li>
-                <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700">
-                    <svg aria-hidden="true"
-                        class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
-                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
-                            clip-rule="evenodd"></path>
-                    </svg>
+                <a href="{{ route('logout') }}"
+                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700"
+                    onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                    <img src="{{ asset('img/user-svgrepo-com.svg') }}" alt="" class="w-6 h-6">
                     <span class="flex-1 ml-3 whitespace-nowrap">Sign Out</span>
                 </a>
-            </li>
-            <li>
-                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </li>
         </ul>
 

@@ -1,34 +1,21 @@
-@extends('dosen.layouts.main')
-
+@extends('pages.main')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1>Logbook {{ $logbook->tanggal_lapor }}</h1>
-
-            <form action="{{ route('dosen.monitoring.logbook.update', ['id' => $logbook->id]) }}" method="POST">
-                @csrf
-                @method('PUT')
-
-                <div class="mb-4">
-                    <label for="logbook" class="block text-gray-700 font-semibold mb-2">Logbook</label>
-                    <textarea id="logbook" name="logbook" class="w-full px-4 py-2 border border-gray-300 rounded-md"
-                        required disabled>{{ $logbook->logbook }}</textarea>
-                </div>
-
-                <div class="mb-4">
-                    <label for="Catatan" class="block text-gray-700 font-semibold mb-2">Catatan</label>
-                    <textarea id="Catatan" name="Catatan"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-md">{{ $logbook->Catatan }}</textarea>
-                </div>
-
-                <div class="mt-8">
-                    <button type="submit"
-                        class="px-4 py-2 bg-blue-500 text-black font-semibold rounded-md hover:bg-blue-600">Submit</button>
-                </div>
-            </form>
-
-        </div>
+<form action="{{ route('dosen.monitoring.logbook.update', ['id' => $logbook->id]) }}" method="POST">
+    @csrf
+    @method('PUT')
+    <div class="mb-6">
+        <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Logbook</label>
+        <input type="text" id="large-input" value="{{ $logbook->logbook }}" name="logbook"
+            class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            readonly disabled>
     </div>
-</div>
+    <div class="mb-6">
+        <label for="large-input" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Catatan</label>
+        <input type="text" id="large-input" value="{{ $logbook->Catatan }}" name="Catatan"
+            class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    </div>
+
+    <button type="submit"
+        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
+</form>
 @endsection
