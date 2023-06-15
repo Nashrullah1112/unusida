@@ -1,7 +1,6 @@
 @extends('pages.main')
 
 @section('content')
-    <form method="POST" action="{{ route('logbook.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>
@@ -42,28 +41,6 @@
         </div>
 
         <div class="">
-            <div class="">
-                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Minggu</label>
-                <select id="countries"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    name="minggu">
-                    <option selected>Pilih Minggu</option>
-                    <option value="1">Minggu 1</option>
-                    <option value="2">Minggu 2</option>
-                    <option value="3">Minggu 3</option>
-                    <option value="4">Minggu 4</option>
-                    <option value="5">Minggu 5</option>
-                </select>
-            </div>
-            <div>
-                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Pilih Program
-                    Berjalan</label>
-                <select id="countries"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option>Kerja Praktik</option>
-                    <option>Kuliah Kerja Nyata "(KKN)"</option>
-                </select>
-            </div>
         </div>
         <div>
             <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Laporan

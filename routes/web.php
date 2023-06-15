@@ -29,46 +29,46 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
-        // Routes accessible only to admins
-        Route::get('/', [AdminController::class, 'index'])->name('dashboard');
-        Route::prefix('mentorship')->name('mentorship.')->group(function () {
-            Route::get('/', [MentorshipController::class, 'index'])->name('index');
-            Route::get('/{id}', [MentorshipController::class, 'show'])->name('show');
-            Route::put('/{id}', [MentorshipController::class, 'update'])->name('update');
-        });
-        Route::put('/verify/{id}', [AdminController::class, 'verify'])->name('verify');
-    });
+// Route::middleware(['auth', 'verified'])->group(function () {
+//     Route::prefix('admin')->name('admin.')->middleware('role:admin')->group(function () {
+//         // Routes accessible only to admins
+//         Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+//         Route::prefix('mentorship')->name('mentorship.')->group(function () {
+//             Route::get('/', [MentorshipController::class, 'index'])->name('index');
+//             Route::get('/{id}', [MentorshipController::class, 'show'])->name('show');
+//             Route::put('/{id}', [MentorshipController::class, 'update'])->name('update');
+//         });
+//         Route::put('/verify/{id}', [AdminController::class, 'verify'])->name('verify');
+//     });
 
-    Route::prefix('dosen')->name('dosen.')->middleware('role:dosen')->group(function () {
-        // Routes accessible only to staff
-        Route::get('/', [DosenController::class, 'index'])->name('dashboard');
-        Route::prefix('monitoring')->name('monitoring.')->group(function () {
-            Route::get('/', [MonitoringController::class, 'index'])->name('index');
-            Route::get('/{id}', [MonitoringController::class, 'show'])->name('show');
-            Route::prefix('logbook')->name('logbook.')->group(function () {
-                Route::get('/{id}', [DosenLogbookController::class, 'show'])->name('show');
-                Route::put('/{id}', [DosenLogbookController::class, 'update'])->name('update');
-            });
-        });
-        Route::put('/profile/{id}', [DosenController::class, 'profile'])->name('profile');
-    });
+//     Route::prefix('dosen')->name('dosen.')->middleware('role:dosen')->group(function () {
+//         // Routes accessible only to staff
+//         Route::get('/', [DosenController::class, 'index'])->name('dashboard');
+//         Route::prefix('monitoring')->name('monitoring.')->group(function () {
+//             Route::get('/', [MonitoringController::class, 'index'])->name('index');
+//             Route::get('/{id}', [MonitoringController::class, 'show'])->name('show');
+//             Route::prefix('logbook')->name('logbook.')->group(function () {
+//                 Route::get('/{id}', [DosenLogbookController::class, 'show'])->name('show');
+//                 Route::put('/{id}', [DosenLogbookController::class, 'update'])->name('update');
+//             });
+//         });
+//         Route::put('/profile/{id}', [DosenController::class, 'profile'])->name('profile');
+//     });
 
-    Route::prefix('mahasiswa')->name('mahasiswa.')->middleware('role:mahasiswa')->group(function () {
-        // Routes accessible only to students (mahasiswa)
-        Route::get('/', [MahasiswaController::class, 'index'])->name('dashboard');
-        Route::prefix('logbook')->name('logbook.')->group(function () {
-            Route::get('/', [MahasiswaDosenLogbookController::class, 'index'])->name('index');
-            Route::get('/create', [MahasiswaDosenLogbookController::class, 'create'])->name('create');
-            Route::get('/{id}', [MahasiswaDosenLogbookController::class, 'show'])->name('show');
-            Route::post('/insert', [MahasiswaDosenLogbookController::class, 'insert'])->name('insert');
-            Route::put('/{id}', [MahasiswaDosenLogbookController::class, 'update'])->name('update');
-        });
-    });
+//     Route::prefix('mahasiswa')->name('mahasiswa.')->middleware('role:mahasiswa')->group(function () {
+//         // Routes accessible only to students (mahasiswa)
+//         Route::get('/', [MahasiswaController::class, 'index'])->name('dashboard');
+//         Route::prefix('logbook')->name('logbook.')->group(function () {
+//             Route::get('/', [MahasiswaDosenLogbookController::class, 'index'])->name('index');
+//             Route::get('/create', [MahasiswaDosenLogbookController::class, 'create'])->name('create');
+//             Route::get('/{id}', [MahasiswaDosenLogbookController::class, 'show'])->name('show');
+//             Route::post('/insert', [MahasiswaDosenLogbookController::class, 'insert'])->name('insert');
+//             Route::put('/{id}', [MahasiswaDosenLogbookController::class, 'update'])->name('update');
+//         });
+//     });
 
     
-});
+// });
 
 // Route::get('/registrasi', [MahasiswaController::class,'index']);
 // Route::get("/",[MahasiswaController::class,'index']);
@@ -144,5 +144,14 @@ Route::get('/monitoring_1', function () {
 });
 Route::get('/monitoring_2', function () {
     return view('pages.monitoring_2');
+});
+Route::get('/logbook_mhs', function () {
+    return view('pages.logbook_mhs');
+});
+Route::get('/logbook_mhs2', function () {
+    return view('pages.logbook_mhs2');
+});
+Route::get('/profile_mhs', function () {
+    return view('pages.profile_mhs');
 });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
