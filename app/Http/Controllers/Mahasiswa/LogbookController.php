@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Mahasiswa;
 
 use App\Http\Controllers\Controller;
 use App\Models\Logbook;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,7 +12,8 @@ class LogbookController extends Controller
 {
     public function index()
     {
-        $logbooks = Logbook::where('mahasiswa_id', '=', Auth::user()->mahasiswa->id)->get();
+        $mahasiwa = User::with('mahasiswa')->find(Auth::id());
+        $logbooks = Logbook::where('mahasiswa_id', '=', $mahasiwa->id)->get();
 
         return view('mahasiswa.logbook.index', compact('logbooks'));
     }
