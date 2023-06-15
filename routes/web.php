@@ -69,34 +69,43 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 });
 
-Route::get('/dashboard_admin', function () {
-    return view('pages.dashboard_admin');
-});
-Route::get('/pilih_mentor', function () {
-    return view('pages.pilih_mentor');
-});
-Route::get('/pilih_dosen', function () {
-    return view('pages.pilih_dosen');
-});
+// Route::get('/dashboard_admin', function () {
+//     return view('pages.dashboard_admin');
+// });
+// Route::get('/pilih_mentor', function () {
+//     return view('pages.pilih_mentor');
+// });
+// Route::get('/pilih_dosen', function () {
+//     return view('pages.pilih_dosen');
+// });
 
-Route::get('/login_new', function () {
-    return view('pages.login_new');
-});
+// Route::get('/login_new', function () {
+//     return view('pages.login_new');
+// });
 
-Route::get('/signup_new', function () {
-    return view('pages.signup_new');
-});
+// Route::get('/signup_new', function () {
+//     return view('pages.signup_new');
+// });
 
-Route::get('/profile', function () {
-    return view('pages.profile');
-});
-Route::get('/monitoring', function () {
-    return view('pages.monitoring');
-});
-Route::get('/monitoring_1', function () {
-    return view('pages.monitoring_1');
-});
-Route::get('/monitoring_2', function () {
-    return view('pages.monitoring_2');
-});
+// Route::get('/profile', function () {
+//     return view('pages.profile');
+// });
+// Route::get('/monitoring', function () {
+//     return view('pages.monitoring');
+// });
+// Route::get('/monitoring_1', function () {
+//     return view('pages.monitoring_1');
+// });
+// Route::get('/monitoring_2', function () {
+//     return view('pages.monitoring_2');
+// });
+// Route::get('/logbook_mhs', function () {
+//     return view('pages.logbook_mhs');
+// });
+// Route::get('/logbook_mhs2', function () {
+//     return view('pages.logbook_mhs2');
+// });
+// Route::get('/profile_mhs', function () {
+//     return view('pages.profile_mhs');
+// });
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
