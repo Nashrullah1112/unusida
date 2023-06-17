@@ -31,7 +31,7 @@ class MahasiswaController extends Controller
         ];
 
         Mahasiswa::create($data);
-        dd($data);
+        // dd($data);
 
         return redirect()->route('mahasiswa.dashboard');
     }

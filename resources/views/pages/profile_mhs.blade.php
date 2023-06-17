@@ -1,6 +1,13 @@
 @extends('pages.main')
 @section('content')
 
+<div >
+    <p class="text-2xl font- text-gray-900 dark:text-white">
+        PROFILE MAHASISWA
+    </p>
+  </div>
+  <div class="bg-green-100 p-7 rounded-lg">
+  
 
 <form>
     <div class="relative z-0 w-full mb-6 group">

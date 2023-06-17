@@ -87,8 +87,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 //     return view('pages.signup_new');
 // });
 
-// Route::get('/profile', function () {
-//     return view('pages.profile');
+// Route::get('/profile_dosen', function () {
+//     return view('pages.profile_dosen');
 // });
 // Route::get('/monitoring', function () {
 //     return view('pages.monitoring');
@@ -105,7 +105,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // Route::get('/logbook_mhs2', function () {
 //     return view('pages.logbook_mhs2');
 // });
-// Route::get('/profile_mhs', function () {
-//     return view('pages.profile_mhs');
-// });
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profile_mhs', function () {
+    return view('pages.profile_mhs');
+});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

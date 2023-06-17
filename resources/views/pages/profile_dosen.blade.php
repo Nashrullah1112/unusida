@@ -1,7 +1,13 @@
 @extends('pages.main')
 @section('content')
+<div >
+  <p class="text-2xl font- text-gray-900 dark:text-white">
+      PROFILE DOSEN
+  </p>
+</div>
+<div class="bg-green-100 p-7 rounded-lg">
 
-
+  
 <form>
     <div class="relative z-0 w-full mb-6 group">
         <input type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer" placeholder=" " required />
@@ -27,14 +33,14 @@
     <legend class="sr-only">Agama</legend>
   
     <div class="flex items-center mb-4">
-      <input id="country-option-1" type="radio" name="agama" value="USA" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-green-600 dark:bg-gray-700 dark:border-gray-600" checked>
+      <input id="country-option-1" type="radio" name="agama" value="USA" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-green-600 dark:bg-gray-700 dark:border-black-600" checked>
       <label for="country-option-1" class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
         Pria
       </label>
     </div>
   
     <div class="flex items-center mb-4">
-      <input id="country-option-2" type="radio" name="agama" value="Germany" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-green-600 dark:bg-gray-700 dark:border-gray-600">
+      <input id="country-option-2" type="radio" name="agama" value="Germany" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-green-300 dark:focus:ring-green-600 dark:focus:bg-green-600 dark:bg-gray-700 dark:border-black-600">
       <label for="country-option-2" class="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
         Wanita
       </label>
@@ -46,5 +52,5 @@
         <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Submit</button>
     </div>  
 </form>
-  
+</div>
 @endsection

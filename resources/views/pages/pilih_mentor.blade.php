@@ -1,5 +1,14 @@
 @extends('pages.main')
 @section('content')
+
+<div >
+    <p class="text-2xl font- text-gray-900 dark:text-white">
+        DATA DOSEN PEMBIMBING DAN MAHASISWA
+    </p>
+  </div>
+  <div class="bg-green-100 p-7 rounded-lg">
+  
+
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-green-50">
     {{-- Select button start --}}
     <div class="flex items-end gap-5  pb-4">
@@ -21,8 +30,8 @@
     {{-- Text Message Start  --}}
 <div>
         <p>
-            Arahkan Mahasiswa untuk mendaftarkan tempat KP pada laman :
-            Bila status persetujuan <b>DITERIMA</b> atau status dokumen <b>SEDANG DIPROSES</b>, maka mahasiswa tidak dapat membatalkan pengajuannya
+            Arahkan Dosen untuk mendapatkan Mahasiswa bimbingan :
+            <b>PASTIKAN KEMBALI</b> mahasiswa mendapat pembimbing sesuai dengan keahlian dosen
         </p>
     </div>
     {{-- TExt Message --}}
