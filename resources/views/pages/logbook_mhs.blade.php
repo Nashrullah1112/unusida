@@ -1,6 +1,13 @@
 @extends('pages.main')
 
 @section('content')
+<div >
+    <p class="text-2xl font- text-gray-900 dark:text-white">
+        LOGBOOK KEGIATAN
+    </p>
+  </div>
+  <div class="bg-green-100 p-7 rounded-lg">
+  
         @csrf
         <div class="grid gap-6 mb-6 md:grid-cols-2">
             <div>

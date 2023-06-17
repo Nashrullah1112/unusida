@@ -2,6 +2,14 @@
 
 @section('content')
 
+<div >
+    <p class="text-2xl font- text-gray-900 dark:text-white">
+        MONITORING MAHASISWA
+    </p>
+  </div>
+  <div class="bg-green-100 p-7 rounded-lg">
+  
+
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-green-50">
     {{-- Select button start --}}
     <div class="flex items-end gap-5  pb-4">
@@ -23,14 +31,13 @@
     {{-- Text Message Start  --}}
 <div>
         <p>
-            Arahkan Mahasiswa untuk mendaftarkan tempat KP pada laman :
-            Bila status persetujuan <b>DITERIMA</b> atau status dokumen <b>SEDANG DIPROSES</b>, maka mahasiswa tidak dapat membatalkan pengajuannya
+           Klik <b> TERIMA </b> melihat logbook mahasiswa dan memberikan komentar.
         </p>
     </div>
     {{-- TExt Message --}}
 
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-grey-700 uppercase bg-green-300 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-full text-sm text-left text-black-500 dark:text-gray-400">
+        <thead class="text-xs text-black-[800] uppercase bg-green-300 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="p-4">
                     <div class="flex items-center">

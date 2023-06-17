@@ -1,10 +1,14 @@
 @extends('pages.login_main')
 @section('content')
-<section class="bg-gray-50 dark:bg-gray-900">
-    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+<section class="bg-gray-50 dark:bg-gray-900 flex">
+    
+    <div class="w-3/5 flex justify-center items-center">
+        <img class="max-w-[600px]" src="{{asset('/img/anim.png')}}" alt="">
+    </div>
+    <div class="w-2/5 flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-            <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
-            Flowbite    
+            <img class="w-48  mr-2" src="{{asset('/img/unusida logo.png')}}" alt="logo">
+           
         </a>
         <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -30,7 +34,7 @@
                     </div>
                     <button type="submit" class="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Sign in</button>
                     <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                        Belum punya akun?yuk  <a href="#" class="font-medium text-green-600 hover:underline dark:text-green-500">Daftar</a>
+                        Belum punya akun?yuk  <a href="/register" class="font-medium text-green-600 hover:underline dark:text-green-500">Daftar</a>
                     </p>
                 </form>
             </div>

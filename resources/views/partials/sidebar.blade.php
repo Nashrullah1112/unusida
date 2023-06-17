@@ -81,8 +81,8 @@
                     <span class="ml-3">Home</span>
                 </a>
             </li>
-            @switch(Auth::user()->role)
-            @case('admin')
+            {{-- @switch(Auth::user()->role)
+            @case('admin') --}}
             {{-- <li>
                 <a href="{{ route('admin.dashboard') }}"
                     class="flex items-center p-2 text-grey-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-grey-900">
@@ -121,9 +121,9 @@
                         class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
                 </a>
             </li>
-            @break
+            {{-- @break
             @case('dosen')
-            @if (Auth::user()->dosen != null)
+            @if (Auth::user()->dosen != null) --}}
             <li>
                 <a href="{{ route('dosen.monitoring.index') }}"
                     class="flex items-center p-2 text-grey-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-grey-900">
@@ -131,10 +131,10 @@
                     <span class="flex-1 ml-3 whitespace-nowrap">Monitoring Mahasiswa</span>
                 </a>
             </li>
-            @endif
-            @break
-            @case('mahasiswa')
-            @if (Auth::user()->mahasiswa != null)
+            {{-- @endif
+            @break --}}
+            {{-- @case('mahasiswa')
+            @if (Auth::user()->mahasiswa != null) --}}
             <li>
                 <a href="/logbook_mhs"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700">
@@ -149,12 +149,12 @@
                         class="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
                 </a>
             </li>
-            @endif
+            {{-- @endif
             @break
             Belum verifikasi
-            @default
+            @default --}}
 
-            @endswitch
+            {{-- @endswitch --}}
             <li>
                 <a href="{{ route('logout') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-green-200 dark:hover:bg-gray-700"
