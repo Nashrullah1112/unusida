@@ -20,21 +20,6 @@ class Mahasiswa extends Model
         return $this->belongsTo(Dosen::class, 'dosen_id', 'id');
     }
 
-    // public function kp()
-    // {
-    //     return $this->hasOne(Kp::class);
-    // }
-
-    // public function kkn()
-    // {
-    //     return $this->hasOne(Kkn::class);
-    // }
-
-    // public function kegiatan()
-    // {
-    //     return $this->hasMany(Program::class, 'id_mahasiswa');
-    // }
-
     public function logbooks()
     {
         return $this->hasMany(Logbook::class);

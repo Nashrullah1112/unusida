@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Kkn;
-use App\Models\Kp;
 use App\Models\Mahasiswa;
+use App\Models\Dosen;
 use App\Models\User;
-use CreateKpTable;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -25,42 +23,44 @@ class DatabaseSeeder extends Seeder
             'role'      => 'admin',
             'verified'  => true,
         ]);
+        $userDosen = User::create([
+            'name'      => 'Dosen',
+            'email'     => 'dosen@lecturer.unusida.ac.id',
+            'password'  => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role'      => 'dosen',
+            'verified'  => true,
+        ]);
+        $userMahasiswa = User::create([
+            'name'      => 'Mahasiswa',
+            'email'     => 'mahasiswa@student.unusida.ac.id',
+            'password'  => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+            'role'      => 'mahasiswa',
+            'verified'  => true,
+        ]);
+
+        // Create a dosen and associate the user
+        $dosen = Dosen::create([
+            'user_id' => $userDosen->id,
+            'alamat' => 'Sepuluh Nopember Institute of Technology, Jl. Teknik Kimia, Keputih, Sukolilo, Surabaya, East Java 60111',
+            'nip' => '000000000',
+            'gender' => 'laki-laki',
+            'agama' => 'islam',
+        ]);
+
+        // Create a mahasiswa and associate the user and dosen
+        Mahasiswa::create([
+            'user_id' => $userMahasiswa->id,
+            'dosen_id' => $dosen->id,
+            'nim' => '000000000',
+            'gender' => 'laki-laki',
+            'agama' => 'islam',
+            'jurusan' => 'Teknik Informatika',
+            'tahun_angkatan' => '2020',
+            'semester' => '5',
+            'alamat' => 'Sepuluh Nopember Institute of Technology, Jl. Teknik Kimia, Keputih, Sukolilo, Surabaya, East Java 60111',
+            'program' => 'kp',
+        ]);
 
         $this->call(UserSeeder::class);
-
-        // \App\Models\User::factory(10)->create();
-
-        // Mahasiswa::create([
-        //     'nama' => 'nashrullah',
-        //     'jenis_kelamin' => 'pria',
-        //     'agama' => 'islam',
-        //     'jurusan' => 'teknik informatika',
-        //     'nim' => '3120500008',
-        //     'email' => 'nashrullah@gmail.com',
-        //     'alamat' => 'waru',
-        //     'semester' => '10',
-        //     'tahun_angkatan' => '2019',
-        //     'program' => 'KP',
-        // ]);
-
-        // Kp::create([
-        //     'id_mahasiswa' => 1,
-        //     'data_kelompok' => 'navis,salwa,faiq',
-        //     'tempat_kp' => 'PT Ralali',
-        //     'waktu_mulai' => '2024-1-1',
-        //     'waktu_berakhir' => '2024-2-2',
-        //     'maps' => 'jl.rajawali no 112',
-        // ]);
-
-        // Kkn::create([
-        //     'id_mahasiswa' => 1,
-        //     'data_kelompok' => 'navis,salwa,faiq',
-        //     'tempat_kkn' => 'Desa kembang desa',
-        //     'waktu_mulai' => '2024-1-1',
-        //     'waktu_berakhir' => '2024-2-2',
-        //     'maps' => 'Jl. rusunawa, Ds Kembang desa',
-        //     'program_kkn' => 'pdf',
-        // ]);
-
     }
 }

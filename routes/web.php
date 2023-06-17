@@ -6,7 +6,7 @@ use App\Http\Controllers\Dosen\DosenController;
 use App\Http\Controllers\Dosen\MonitoringController;
 use App\Http\Controllers\Dosen\LogbookController as DosenLogbookController;
 use App\Http\Controllers\Mahasiswa\MahasiswaController;
-use App\Http\Controllers\Mahasiswa\LogbookController as MahasiswaDosenLogbookController;
+use App\Http\Controllers\Mahasiswa\LogbookController as MahasiswaLogbookController;
 // use App\Http\Controllers\AdminController;
 // use App\Http\Controllers\DosenController;
 // use App\Http\Controllers\MahasiswaController;
@@ -42,7 +42,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     Route::prefix('dosen')->name('dosen.')->middleware('role:dosen')->group(function () {
-        // Routes accessible only to staff
+        // Routes accessible only to lecturers (dosen)
         Route::get('/', [DosenController::class, 'index'])->name('dashboard');
         Route::prefix('monitoring')->name('monitoring.')->group(function () {
             Route::get('/', [MonitoringController::class, 'index'])->name('index');
@@ -59,53 +59,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Routes accessible only to students (mahasiswa)
         Route::get('/', [MahasiswaController::class, 'index'])->name('dashboard');
         Route::prefix('logbook')->name('logbook.')->group(function () {
-            Route::get('/', [MahasiswaDosenLogbookController::class, 'index'])->name('index');
-            Route::get('/create', [MahasiswaDosenLogbookController::class, 'create'])->name('create');
-            Route::get('/{id}', [MahasiswaDosenLogbookController::class, 'show'])->name('show');
-            Route::post('/insert', [MahasiswaDosenLogbookController::class, 'insert'])->name('insert');
-            Route::put('/{id}', [MahasiswaDosenLogbookController::class, 'update'])->name('update');
+            Route::get('/', [MahasiswaLogbookController::class, 'index'])->name('index');
+            Route::get('/create', [MahasiswaLogbookController::class, 'create'])->name('create');
+            Route::get('/{id}', [MahasiswaLogbookController::class, 'show'])->name('show');
+            Route::post('/insert', [MahasiswaLogbookController::class, 'insert'])->name('insert');
+            Route::put('/{id}', [MahasiswaLogbookController::class, 'update'])->name('update');
         });
         Route::put('/profile/{id}', [MahasiswaController::class, 'profile'])->name('profile');
     });
 });
-
-// Route::get('/dashboard_admin', function () {
-//     return view('pages.dashboard_admin');
-// });
-// Route::get('/pilih_mentor', function () {
-//     return view('pages.pilih_mentor');
-// });
-// Route::get('/pilih_dosen', function () {
-//     return view('pages.pilih_dosen');
-// });
-
-// Route::get('/login_new', function () {
-//     return view('pages.login_new');
-// });
-
-// Route::get('/signup_new', function () {
-//     return view('pages.signup_new');
-// });
-
-// Route::get('/profile_dosen', function () {
-//     return view('pages.profile_dosen');
-// });
-// Route::get('/monitoring', function () {
-//     return view('pages.monitoring');
-// });
-// Route::get('/monitoring_1', function () {
-//     return view('pages.monitoring_1');
-// });
-// Route::get('/monitoring_2', function () {
-//     return view('pages.monitoring_2');
-// });
-// Route::get('/logbook_mhs', function () {
-//     return view('pages.logbook_mhs');
-// });
-// Route::get('/logbook_mhs2', function () {
-//     return view('pages.logbook_mhs2');
-// });
-Route::get('/profile_mhs', function () {
-    return view('pages.profile_mhs');
-});
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

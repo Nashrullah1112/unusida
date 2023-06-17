@@ -11,8 +11,7 @@ class DosenController extends Controller
 {
     public function index()
     {
-        $dosen = Dosen::where('user_id', '=', Auth::id())->firstOrFail();
-        // dd($dosen);
+        $dosen = Dosen::where('user_id', '=', Auth::id())->first();
 
         return view('dosen.dashboard', compact('dosen'));
     }
