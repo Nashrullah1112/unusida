@@ -18,7 +18,7 @@ class LogbookController extends Controller
     public function update(Request $request, $id)
     {
         $logbook = Logbook::findOrFail($id);
-        $logbook->update(['Catatan' => $request->Catatan]);
+        $logbook->update(['catatan' => $request->catatan]);
         $logbook->save();
 
         return redirect()->route('dosen.monitoring.show', ['id' => $logbook->mahasiswa->id]);

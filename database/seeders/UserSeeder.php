@@ -74,7 +74,7 @@ class UserSeeder extends Seeder
                 Logbook::create([
                     'mahasiswa_id' => $mahasiswa->id,
                     'logbook' => $faker->text($maxNbChars = 200),
-                    'Catatan' => $faker->text($maxNbChars = 20),
+                    'catatan' => $faker->text($maxNbChars = 20),
                     'tanggal_lapor' => now()->format('Y-m-d'),
                 ]);
             }

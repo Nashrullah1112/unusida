@@ -50,7 +50,10 @@
                     Logbook
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Catatan
+                    catatan
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    File
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Aksi
@@ -73,7 +76,10 @@
                     {{ Str::limit($logbook->logbook, 50) }}
                 </th>
                 <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
-                    {{ $logbook->Catatan == null ? 'tidak ada catatan' : Str::limit($logbook->Catatan, 30) }}
+                    {{ $logbook->catatan == null ? 'tidak ada catatan' : Str::limit($logbook->catatan, 30) }}
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
+                    <a href="{{ asset($logbook->file) }}">lihat file</a>
                 </th>
                 <td class="px-6 py-4">
                     <a href="{{ route('mahasiswa.logbook.show', ['id' => $logbook->id]) }}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg

@@ -1,55 +1,3 @@
-{{-- @extends('dosen.layouts.main')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1>Logbook {{ $mahasiswa->user->name }}</h1>
-
-<table class="min-w-full divide-y divide-gray-200">
-    <thead>
-        <tr>
-            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                #
-            </th>
-            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Tanggal
-            </th>
-            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Logbook
-            </th>
-            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Catatan
-            </th>
-            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Aksi
-            </th>
-            <!-- Add more table headers for additional columns -->
-        </tr>
-    </thead>
-    <tbody class="bg-white divide-y divide-gray-200">
-        @foreach($mahasiswa->logbooks as $logbook)
-        <tr>
-            <td class="px-6 py-4 whitespace-nowrap">{{ $loop->iteration }}</td>
-            <td class="px-6 py-4 whitespace-nowrap">{{ $logbook->tanggal_lapor }}</td>
-            <td class="px-6 py-4 whitespace-nowrap">{{ Str::limit($logbook->logbook, 50) }}</td>
-            <td class="px-6 py-4 whitespace-nowrap">{{ $logbook->Catatan == null ? 'tidak ada catatan' :
-                            Str::limit($logbook->Catatan, 30) }}</td>
-            <td class="px-6 py-4 whitespace-nowrap">
-                <a href="{{ route('dosen.monitoring.logbook.show', ['id' => $logbook->id]) }}" class="inline-block px-4 py-2 text-sm font-medium leading-5 text-black transition-colors duration-150 bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
-                    lihat loogbook
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-
-</div>
-</div>
-</div>
-@endsection --}}
-
 @extends('layouts.main')
 
 @section('content')
@@ -78,8 +26,6 @@
         </form>
     </div>
 
-
-
     {{-- Text Message Start --}}
     <div>
         <p>
@@ -106,7 +52,10 @@
                     Logbook
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Catatan
+                    catatan
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    File
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Aksi
@@ -129,12 +78,12 @@
                     {{ Str::limit($logbook->logbook, 50) }}
                 </th>
                 <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
-                    {{ Str::limit($logbook->Catatan, 30) }}
+                    {{ $logbook->catatan == null ? 'belum ada catatan' : Str::limit($logbook->catatan, 30) }}
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-blue whitespace-nowrap dark:text-white">
+                    <a href="{{ asset($logbook->file) }}">lihat</a>
                 </th>
                 <td class="px-6 py-4">
-                    {{-- <button type="button"
-                        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Lihat
-                        Logbook</button> --}}
                     <a href="{{ route('dosen.monitoring.logbook.show', ['id' => $logbook->id]) }}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg
                             text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                         lihat loogbook
