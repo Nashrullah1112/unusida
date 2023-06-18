@@ -36,9 +36,11 @@
                 Kegiatan</label>
             <textarea id="logbook" rows="4" name="logbook" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" readonly disabled>{{ $logbook->logbook }}</textarea>
         </div> <br>
+        @if ($logbook->file !== null)
         <div>
             <iframe src="{{ asset($logbook->file) }}" width="100%" height="600px"></iframe>
         </div>
+        @endif
         <div>
             <label for="catatan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">catatan Dosen</label>
             <textarea id="catatan" rows="4" name="catatan" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>{{ $logbook->catatan == null ? 'tidak ada catatan' : $logbook->catatan }}</textarea>

@@ -79,7 +79,9 @@
                     {{ $logbook->catatan == null ? 'tidak ada catatan' : Str::limit($logbook->catatan, 30) }}
                 </th>
                 <th scope="row" class="px-6 py-4 font-medium text-black-900 whitespace-nowrap dark:text-white">
+                    @if ($logbook->file !== null)
                     <a href="{{ asset($logbook->file) }}">lihat file</a>
+                    @endif
                 </th>
                 <td class="px-6 py-4">
                     <a href="{{ route('mahasiswa.logbook.show', ['id' => $logbook->id]) }}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg
