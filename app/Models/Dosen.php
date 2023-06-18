@@ -8,23 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Dosen extends Model
 {
     use HasFactory;
-    protected $guarded = ['id']; 
-    protected $table='dosens';
+    protected $guarded = ['id'];
+    protected $table = 'dosens';
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
-    public function mahasiswas() {
+    public function mahasiswas()
+    {
         return $this->hasMany(Mahasiswa::class, 'dosen_id', 'id');
     }
-
-    // public function logbook()
-    // {
-    //     return $this->hasOne(Logbook::class);
-    // }
-    // public function program()
-    // {
-    //     return $this->hasMany(Program::class, 'id_dosen');
-    // }
 }

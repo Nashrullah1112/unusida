@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::where('id', '!=', Auth::id())->get();
+        $users = User::where('id', '!=', Auth::id())->orderBy('created_at', 'desc')->get();
 
         return view('admin.dashboard', compact('users'));
     }

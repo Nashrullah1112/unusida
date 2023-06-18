@@ -1,4 +1,4 @@
-@extends('pages.main')
+@extends('layouts.main')
 
 @section('content')
 <div class="container">
@@ -14,23 +14,17 @@
 
                 <div class="mb-4">
                     <label for="alamat" class="block text-gray-700 font-bold mb-2">Alamat:</label>
-                    <textarea id="alamat" name="alamat"
-                        class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        rows="4" required></textarea>
+                    <textarea id="alamat" name="alamat" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4" required></textarea>
                 </div>
 
                 <div class="mb-4">
                     <label for="nip" class="block text-gray-700 font-bold mb-2">NIP:</label>
-                    <input id="nip" name="nip" type="number" max="9999999999"
-                        class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        required>
+                    <input id="nip" name="nip" type="number" max="9999999999" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="gender" class="block text-gray-700 font-bold mb-2">Gender:</label>
-                    <select id="gender" name="gender"
-                        class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        required>
+                    <select id="gender" name="gender" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                         <option selected disabled>Select gender</option>
                         <option value="laki-laki">Laki-laki</option>
                         <option value="perempuan">Perempuan</option>
@@ -39,9 +33,7 @@
 
                 <div class="mb-4">
                     <label for="agama" class="block text-gray-700 font-bold mb-2">Agama:</label>
-                    <select id="agama" name="agama"
-                        class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        required>
+                    <select id="agama" name="agama" class="appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                         <option selected disabled>Select religion</option>
                         <option value="Islam">Islam</option>
                         <option value="Kristen">Kristen</option>
@@ -53,8 +45,7 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <button type="submit"
-                        class="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
                 </div>
             </form>
             @endif

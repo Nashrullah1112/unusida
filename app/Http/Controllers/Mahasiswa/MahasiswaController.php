@@ -11,7 +11,7 @@ class MahasiswaController extends Controller
 {
     public function index()
     {
-        $mahasiswa = Auth::user()->mahasiswa;
+        $mahasiswa = Mahasiswa::where('user_id', '=', Auth::id())->first();
 
         return view('mahasiswa.dashboard', compact('mahasiswa'));
     }
